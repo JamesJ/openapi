@@ -131,7 +131,7 @@ public abstract class AbstractWrapper {
         return map;
     }
     
-    private JsonElement toJsonElement(Object object) {
+    protected JsonElement toJsonElement(Object object) {
         if (object instanceof String) {
             return new JsonPrimitive((String) object);
         }

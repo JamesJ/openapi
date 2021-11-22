@@ -13,8 +13,6 @@ public interface HttpRoute<T> {
     
     HttpMethod getHttpMethod();
     
-    String getOperationId();
-    
     String getPath();
     
     default List<Parameter<?>> getParameters() {

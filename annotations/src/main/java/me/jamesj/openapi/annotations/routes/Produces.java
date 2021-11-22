@@ -9,6 +9,6 @@ import java.lang.annotation.*;
 public @interface Produces {
     
     @NotNull
-    String value();
+    String[] value();
     
 }

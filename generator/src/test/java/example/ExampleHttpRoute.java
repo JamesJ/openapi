@@ -21,11 +21,6 @@ public class ExampleHttpRoute implements HttpRoute<String> {
     }
     
     @Override
-    public String getOperationId() {
-        return "exampleString";
-    }
-    
-    @Override
     public String getPath() {
         return "/example/string";
     }

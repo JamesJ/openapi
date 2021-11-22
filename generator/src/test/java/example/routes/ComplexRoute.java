@@ -1,11 +1,11 @@
 package example.routes;
 
-import example.ExampleParameter;
 import me.jamesj.openapi.annotations.Description;
 import me.jamesj.openapi.annotations.KeyValue;
 import me.jamesj.openapi.api.http.HttpMethod;
 import me.jamesj.openapi.api.http.HttpRoute;
 import me.jamesj.openapi.api.http.parameters.Parameter;
+import me.jamesj.openapi.api.http.parameters.impl.FormParameter;
 
 import java.util.*;
 
@@ -18,14 +18,14 @@ import java.util.*;
 @KeyValue(key = "x-randomKeyValue2", value = "hello")
 @KeyValue(key = "x-randomKeyValue3", value = "howdy")
 public class ComplexRoute implements HttpRoute<Map<String, Object>> {
+    
+    private static final Parameter<String> NAME = FormParameter.field("name").required().defaultsTo("Jimmy");
+    private static final Parameter<Boolean> KEEP_LOGGED_IN = FormParameter.field("keep_logged_in")
+        .type(boolean.class).defaultsTo(false).required();
+    
     @Override
     public HttpMethod getHttpMethod() {
         return HttpMethod.POST;
-    }
-    
-    @Override
-    public String getOperationId() {
-        return "complexHttpRoute";
     }
     
     @Override
@@ -35,6 +35,6 @@ public class ComplexRoute implements HttpRoute<Map<String, Object>> {
     
     @Override
     public List<Parameter<?>> getParameters() {
-        return Arrays.asList(new ExampleParameter());
+        return Arrays.asList(NAME, KEEP_LOGGED_IN);
     }
 }
