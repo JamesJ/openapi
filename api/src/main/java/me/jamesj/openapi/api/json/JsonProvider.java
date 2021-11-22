@@ -7,7 +7,6 @@ import me.jamesj.openapi.api.references.serializer.ReferenceSerializer;
 
 public interface JsonProvider {
     
-    
     Gson GSON = new Gson()
         .newBuilder()
         .serializeNulls()

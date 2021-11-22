@@ -19,7 +19,7 @@ public interface FormParameter<T> extends Parameter<T> {
     static class Form<T> implements FormParameter<T> {
         
         private final String field;
-        private Class<T> type;
+        private final Class<T> type;
         private T defaultsTo;
         private String format;
         private boolean required = false;
